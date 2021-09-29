@@ -12,10 +12,14 @@
     </header>
 
     <section class="sec1">
-      <img src="../assets/server.svg" alt="server illustration" class="server" />
+      <img
+        src="../assets/server.svg"
+        alt="server illustration"
+        class="server"
+      />
 
       <h1>Application Developer</h1>
-      <p class="slogan">Go serverless and pay only what you use</p>
+      <p class="slogan">A look into my personal projects</p>
       <img
         src="@/assets/scroll.svg"
         class="scroll hide-desktop show-mobile"
@@ -26,42 +30,12 @@
   <div class="blue-container">
     <div class="container">
       <ul>
-        <li>
-          <img src="/images/icon-1.svg" alt="calendar icon" />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </li>
-        <li>
-          <img src="/images/icon-2.svg" alt="wallet icon" />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </li>
-        <li>
-          <img src="/images/icon-3.svg" alt="phone icon" />
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </li>
+        <ProjectView v-for="proj in projectsArray" :key="proj.id"
+        :img="proj.img"
+        :title="proj.title"
+        :techArray="proj.techArray"
+        :GHLink="proj.GHLink"
+        :liveLink="proj.liveLink"/>
       </ul>
     </div>
   </div>
@@ -96,16 +70,38 @@
 </template>
 
 <script>
+import ProjectView from "@/components/ProjectView.vue";
 export default {
   name: "Home",
-  components: {},
+  components: {
+    ProjectView,
+  },
+  data() {
+    return {
+      projectsArray: [
+        {
+          id: 1,
+          img: "feedback-board.svg",
+          title: "Feedback Forum",
+          techArray: ["VueJs", "Vuex & Router", "Firebase Cloud DB",],
+          GHLink: "https://github.com/Pierpaolo01/vue-product-feedback",
+          liveLink: "http://www.product-feedback.xyz/",
+        },
+        {
+          id: 2,
+          img: "invoices.svg",
+          title: "Invoice App",
+          techArray: ["VueJs & Vuex", "Firebase Cloud DB"],
+          GHLink: "https://github.com/Pierpaolo01/vue-invoice-app",
+          liveLink: "http://www.invoice-app.xyz/",
+        },
+      ],
+    };
+  },
 };
 </script>
 
 <style scoped>
-.heading {
-  /* background: url('../assets/background.jpg'); */
-}
 body {
   margin: 0;
   font-family: "roboto";
@@ -370,7 +366,6 @@ p ul li:last-child {
   border: none;
 }
 
-
 @media only screen and (min-width: 750px) {
   header {
     flex-direction: row;
@@ -427,7 +422,7 @@ p ul li:last-child {
     width: 100%;
   }
 
-  nav ul li a{
+  nav ul li a {
     padding: 0 0 0 10px;
   }
 }
