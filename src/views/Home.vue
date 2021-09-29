@@ -1,18 +1,516 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container heading">
+    <header>
+      <h2 id="title">Pierpaolo Pascarella</h2>
+      <nav>
+        <ul id="nav">
+          <li><a href="#">View CV</a></li>
+          <li><a href="#">View GitHub</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="sec1">
+      <img src="../assets/server.svg" alt="server illustration" class="server" />
+
+      <h1>Application Developer</h1>
+      <p class="slogan">Go serverless and pay only what you use</p>
+      <img
+        src="@/assets/scroll.svg"
+        class="scroll hide-desktop show-mobile"
+        alt="scroll image"
+      />
+    </section>
+  </div>
+  <div class="blue-container">
+    <div class="container">
+      <ul>
+        <li>
+          <img src="/images/icon-1.svg" alt="calendar icon" />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </li>
+        <li>
+          <img src="/images/icon-2.svg" alt="wallet icon" />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </li>
+        <li>
+          <img src="/images/icon-3.svg" alt="phone icon" />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="grey-container">
+    <div class="container">
+      <h2>Our Team</h2>
+
+      <ul>
+        <li>
+          <figure>
+            <img src="/images/user1.png" alt="user 1" />
+            <blockquote>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              corrupti numquam quos nihil?
+            </blockquote>
+            <figcaption>- Jhon Doe</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <img src="/images/user2.png" alt="user 2" />
+            <blockquote>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              corrupti numquam quos nihil?
+            </blockquote>
+            <figcaption>- User 2</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: "Home",
+  components: {},
+};
+</script>
+
+<style scoped>
+.heading {
+  /* background: url('../assets/background.jpg'); */
+}
+body {
+  margin: 0;
+  font-family: "roboto";
+}
+
+#title {
+  margin: 19px 0;
+}
+
+p,
+blockquote {
+  font-size: 0.9em;
+  line-height: 1.6em;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+  /* padding: 0.8em 1.6em; */
+}
+
+.logo {
+  width: 130px;
+}
+.hide-desktop {
+  display: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ham-menu {
+  width: 25px;
+  margin-top: 45%;
+}
+
+.server {
+  width: 70%;
+  margin: 2em auto 2em 25%;
+}
+
+h1,
+.slogan {
+  position: relative;
+  z-index: 3;
+}
+
+.slogan {
+  font-size: 1.1em;
+}
+
+.blue-container {
+  width: 100%;
+  background-color: aqua;
+  color: #fff;
+  margin-top: 15%;
+  padding: 4em 0 2em;
+  border-top-left-radius: 70px;
+  transform: skewy(-2deg);
+}
+
+.blue-container ul {
+  transform: skewY(2deg);
+}
+
+.blue-container:before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background-color: aqua;
+  z-index: -2;
+}
+
+.blue-container:after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background-color: white;
+  top: -100px;
+  right: 0;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.blue-container ul li {
+  margin-bottom: 3em;
+}
+.blue-container ul li p {
+  padding: 0 0.5em;
+}
+
+.blue-container img {
+  width: 10%;
+}
+
+.blue-container ul li:last-child img {
+  width: 8%;
+}
+
+.grey-container {
+  background-color: grey;
+  color: white;
+  padding: 4em 0 2em;
+  margin-top: -2%;
+}
+
+.grey-container ul li:first-child {
+  padding-bottom: 2em;
+}
+.grey-container h2 {
+  margin: 0 0 2em;
+  text-decoration: underline;
+  color: aqua;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+figcaption {
+  font-weight: bold;
+  color: aqua;
+}
+
+h2 {
+  margin-top: 7%;
+  margin-bottom: 5%;
+}
+
+.cta {
+  background-color: green;
+  color: aqua;
+  width: calc(100% -1em);
+  display: block;
+  border-radius: 20px;
+  padding: 0.5em;
+  text-decoration: none;
+  font-size: 1.5em;
+  margin: 3% auto 7%;
+  position: relative;
+  z-index: 4;
+}
+
+.footer-container {
+  background-color: darkslategrey;
+  color: lightgray;
+  transform: skewY(2deg);
+  border-top-right-radius: 40px;
+  padding: 3em 0;
+}
+
+.footer-container::before {
+  content: "";
+  background-color: darkslategrey;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -39px;
+  left: 0;
+}
+
+.footer-container:after {
+  content: "";
+  background-color: #fff;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: -80px;
+  left: 0;
+  border-radius: 50%;
+}
+
+.footer-container .container {
+  transform: skewY(-2deg);
+}
+
+.footer-container li {
+  display: inline-block;
+}
+
+.footer-container ul li a {
+  text-decoration: underline;
+  color: #fff;
+}
+
+nav ul {
+  position: fixed;
+  width: 60%;
+  top: 0;
+  right: 0;
+  text-align: center;
+  background: darkslategrey;
+  height: 100%;
+  z-index: 7;
+}
+
+nav ul li a {
+  text-align: center;
+  color: #fff;
+  display: block;
+  width: 100%;
+  /* padding: 15px; */
+  background-color: rgb(58, 95, 95);
+  border-top: solid 0.1em gray;
+}
+
+nav ul li a:hover {
+  background: lightcoral;
+}
+
+.exit-btn {
+  margin-bottom: 1em;
+  margin-top: 1.3em;
+  text-align: left;
+  padding: 0 1.4em;
+}
+
+.exit-btn:hover {
+  cursor: pointer;
+}
+
+nav ul {
+  padding: 0 !important;
+  background: none;
+  width: auto;
+  height: auto;
+  position: inherit;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  color: black;
+  background-color: inherit;
+  border: none;
+  text-align: left;
+}
+
+nav ul li a:hover {
+  background-color: inherit;
+}
+
+p ul li:last-child {
+  border: none;
+}
+
+
+@media only screen and (min-width: 750px) {
+  header {
+    flex-direction: row;
+  }
+
+  .server {
+    width: 50%;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+
+  .slogan {
+    font-size: 1.4em;
+    margin: 0;
+  }
+
+  .blue-container {
+    margin: 0;
+  }
+
+  .blue-container img {
+    width: 20%;
+  }
+
+  .blue-container ul li:last-child img {
+    width: 12%;
+  }
+
+  .blue-container ul {
+    display: flex;
+    margin-top: 1em;
+    align-items: center;
+  }
+  .blue-container ul li {
+    margin-bottom: 0;
+  }
+
+  .blue-container ul li p {
+    padding: 0 0.8em;
+  }
+
+  .grey-container ul {
+    display: flex;
+  }
+
+  nav {
+    margin: 20px;
+  }
+
+  nav ul {
+    width: 100%;
+  }
+
+  nav ul li a{
+    padding: 0 0 0 10px;
   }
 }
-</script>
+
+@media only screen and (min-width: 900px) {
+  .slogan {
+    margin: 1.5em;
+  }
+
+  .blue-container ul {
+    margin-bottom: 4%;
+  }
+
+  .grey-container .container {
+    margin-top: 5%;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .blue-container ul li p {
+    padding: 0 1.8em;
+  }
+
+  .grey-container .container {
+    margin-top: 8%;
+    margin-bottom: 5%;
+  }
+  .grey-container ul li {
+    margin: 0 auto;
+  }
+  .grey-container ul li figure {
+    margin: 0 10em auto;
+  }
+
+  .grey-container ul li blockquote {
+    margin: 0;
+  }
+
+  .cta {
+    width: 50%;
+  }
+
+  .footer-container .container {
+    font-size: 1.6em;
+  }
+
+  .footer-container ul li a {
+    margin: 0 1em;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  header {
+    margin: 0 auto;
+    width: 80%;
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .show-mobile {
+    display: none;
+  }
+
+  .hide-desktop {
+    display: block;
+    margin: 0 auto 12% auto;
+  }
+
+  .scroll {
+    width: 30px;
+    animation: move 1s infinite alternate;
+  }
+
+  @keyframes move {
+    from {
+      transform: translatey(0px);
+    }
+
+    to {
+      transform: translatey(20px);
+    }
+  }
+}
+</style>
