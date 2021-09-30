@@ -1,85 +1,93 @@
 <template>
-  <div class="container heading">
-    <header>
-      <h2 id="title">Pierpaolo Pascarella</h2>
-      <nav>
-        <ul id="nav">
-          <li><a href="#">View CV</a></li>
-          <li><a href="#">View GitHub</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+  <div class="container">
+    <div class="container heading">
+      <header>
+        <h2 id="title">Pierpaolo Pascarella</h2>
+        <nav>
+          <ul id="nav">
+            <li><a href="#">View CV</a></li>
+            <li><a href="#">View GitHub</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
 
-    <section class="sec1">
-      <img
-        src="../assets/server.svg"
-        alt="server illustration"
-        class="server"
-      />
-
-      <h1>Application Developer</h1>
-      <p class="slogan">A look into my personal projects</p>
-      <img
-        src="@/assets/scroll.svg"
-        class="scroll hide-desktop show-mobile"
-        alt="scroll image"
-      />
-    </section>
-  </div>
-  <div class="blue-container">
-    <div class="container projects">
-      <ul>
-        <ProjectView
-          v-for="proj in projectsArray"
-          :key="proj.id"
-          :img="proj.img"
-          :title="proj.title"
-          :techArray="proj.techArray"
-          :GHLink="proj.GHLink"
-          :liveLink="proj.liveLink"
+      <section class="sec1">
+        <img
+          src="../assets/server.svg"
+          alt="server illustration"
+          class="server"
         />
-      </ul>
-    </div>
-  </div>
-  <div class="grey-container">
-    <div class="container">
-      <h2>Contact</h2>
 
-      <figure>
-        <figcaption>- Pierpaolo Pascarella</figcaption>
-        <div class="contact-info">
-          <img
-            src="@/assets/pierpaoloPicture.jpg"
-            alt="user 1"
-            class="profile-image"
+        <h1>Application Developer</h1>
+        <p class="slogan">A look into my personal projects</p>
+        <img
+          src="@/assets/scroll.svg"
+          class="scroll hide-desktop show-mobile"
+          alt="scroll image"
+        />
+      </section>
+    </div>
+    <Modal v-if="modalIsVisible"
+    :title="selectedProject.title"
+    @closeModal="modalIsVisible = false"/>
+    <div class="blue-container">
+      <div class="container projects">
+        <ul >
+          <ProjectView
+            v-for="proj in projectsArray"
+            :key="proj.id"
+            :id="proj.id"
+            :img="proj.img"
+            :title="proj.title"
+            :techArray="proj.techArray"
+            :GHLink="proj.GHLink"
+            :liveLink="proj.liveLink"
+            @feedModal="setSelectedProject"
           />
-          <div>
+        </ul>
+      </div>
+    </div>
+    <div class="grey-container">
+      <div class="container">
+        <h2>Contact</h2>
+
+        <figure>
+          <figcaption>- Pierpaolo Pascarella</figcaption>
+          <div class="contact-info">
+            <img
+              src="@/assets/pierpaoloPicture.jpg"
+              alt="profile picture"
+              class="profile-image"
+            />
+
             <blockquote class="block">
               <span class="phone">
-                Phone : <a href="tel:+31640218987">+31 6 40218987 </a>
+                Phone : <a href="tel:+31640218987"> +31 6 40218987 </a>
               </span>
-              <br />
+
               <span class="email">
                 Email :
-                <a href="mailto:pierpaolo.pascarella@gmail.com"
-                  >pierpaolo.pascarella@gmail.com</a
+                <a href="mailto:pierpaolo.pascarella@gmail.com">
+                  pierpaolo.pascarella@gmail.com</a
                 >
               </span>
             </blockquote>
           </div>
-        </div>
-      </figure>
+        </figure>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import ProjectView from "@/components/ProjectView.vue";
+import Modal from "@/components/Modal.vue";
 export default {
   name: "Home",
   components: {
     ProjectView,
+    Modal,
   },
   data() {
     return {
@@ -101,16 +109,27 @@ export default {
           liveLink: "http://www.invoice-app.xyz/",
         },
       ],
+      selectedProject: null,
+      modalIsVisible: false,
     };
+  },
+  methods: {
+    setSelectedProject(projValue, openModal){
+      this.selectedProject = projValue;
+      this.modalIsVisible = openModal;
+      console.log(this.selectedProject.title)
+    }
   },
 };
 </script>
 
 <style scoped>
-body {
-  margin: 0;
-  font-family: "roboto";
+
+.container {
+  z-index: 1;
+  padding: 0;
 }
+
 
 #title {
   margin: 19px 0;
@@ -118,13 +137,15 @@ body {
 
 p,
 blockquote {
+  margin: 0;
   font-size: 0.9em;
   line-height: 1.6em;
 }
 
 .block {
-  text-align: left;
-  margin: 45px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 ul {
@@ -172,8 +193,8 @@ h1,
 }
 
 .profile-image {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   margin-right: 20px;
 }
@@ -447,6 +468,10 @@ p ul li:last-child {
 
   nav ul li a {
     padding: 0 0 0 10px;
+  }
+  .profile-image {
+    height: 150px;
+    width: 150px;
   }
 }
 

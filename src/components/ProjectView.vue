@@ -1,10 +1,4 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous"
-  />
   <li>
     <article class="project-container">
       <div class="heading">
@@ -22,7 +16,7 @@
         </div>
       </div>
       <div class="nav-btns">
-        <button class="btn btn-primary more-info">More Info</button>
+        <button :id="id" class="btn btn-primary more-info" @click="selectedProject">More Info</button>
         <button class="btn btn-success live-proect" >
           <a :href="liveLink" target="_blank">View project live </a>
         </button>
@@ -37,6 +31,11 @@
 <script>
 export default {
   props: ["id", "img", "title", "techArray", "GHLink", "liveLink"],
+  methods: {
+      selectedProject(){
+          this.$emit('feedModal', this.$props, true);
+      },
+  },
   computed: {
     imgSRC() {
       return require("../assets/" + this.img);
