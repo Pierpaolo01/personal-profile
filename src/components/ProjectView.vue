@@ -1,5 +1,10 @@
 <template>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
   <li>
     <article class="project-container">
       <div class="heading">
@@ -8,14 +13,21 @@
       <div class="content">
         <h3>{{ title }}</h3>
         <div class="tech">
-          <span v-for="tech in techArray" :key="tech"> {{ tech }} </span>
+          <span class="stack">Stack</span>
+          <div class="techStacks">
+            <span v-for="tech in techArray" :key="tech">
+              {{ tech }}
+            </span>
+          </div>
         </div>
       </div>
-      <div class="nav">
-        <button class="btn btn-primary">More Info</button>
-        <button class="btn btn-secondary"><a :href="GHLink" target="_blank">View GitHub </a></button>
-        <button class="btn btn-success" style="color: white;"> 
+      <div class="nav-btns">
+        <button class="btn btn-primary more-info">More Info</button>
+        <button class="btn btn-success live-proect" >
           <a :href="liveLink" target="_blank">View project live </a>
+        </button>
+        <button class="btn btn-secondary view-git">
+          <a :href="GHLink" target="_blank">View GitHub </a>
         </button>
       </div>
     </article>
@@ -34,57 +46,78 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  text-decoration: underline;
+  margin-top: 20px;
+}
 
 .content {
-    align-self: center;
+  align-self: center;
 }
 
 li {
-    max-width: 350px;
-  margin: 0 25px;
+  max-width: 350px;
+  margin: 0 auto 25px auto;
+  background-color: #0c2340;
+  box-shadow: black 0px 0px 10px 0px;
+  padding-bottom: 5px;
 }
+
+li:hover {
+  box-shadow: black 0px 0px 20px 5px;
+}
+
 .project-container {
   display: flex;
   flex-direction: column;
 }
 
 img {
-  width: 200px;
-  /* height: 200px; */
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
 }
-
+.stack {
+  margin: 0 auto;
+  width: 80%;
+  border-bottom: 1px black solid;
+}
 .tech {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 15px 0;
-
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+.techStacks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 span {
-  padding: 10px;
   margin: 5px;
-  border-radius: 15px;
-  background-color: #DB4437;
+  color: white;
 }
 
-span:first-of-type {
-  background-color: #0f9d58;
-}
-
-span:nth-of-type(2) {
-  background-color: #f4b400;
-}
-span:last-of-type {
-  background-color: #4285f4;
-}
-
-.nav {
-    display: flex;
-    justify-content: space-around;
+.nav-btns {
+  display: flex;
+  flex-basis: 4;
+  justify-content: space-around;
 }
 
 a {
-    color: white;
+  color: white;
+  font-size: 12px;
+}
+
+.view-git {
+    flex-basis: 1;
+}
+.live-proect {
+    flex-basis: 2;
+}
+.more-info {
+    font-size: 12px;
+    flex-basis: 1;
 }
 </style>

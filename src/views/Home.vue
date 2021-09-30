@@ -28,43 +28,48 @@
     </section>
   </div>
   <div class="blue-container">
-    <div class="container">
+    <div class="container projects">
       <ul>
-        <ProjectView v-for="proj in projectsArray" :key="proj.id"
-        :img="proj.img"
-        :title="proj.title"
-        :techArray="proj.techArray"
-        :GHLink="proj.GHLink"
-        :liveLink="proj.liveLink"/>
+        <ProjectView
+          v-for="proj in projectsArray"
+          :key="proj.id"
+          :img="proj.img"
+          :title="proj.title"
+          :techArray="proj.techArray"
+          :GHLink="proj.GHLink"
+          :liveLink="proj.liveLink"
+        />
       </ul>
     </div>
   </div>
   <div class="grey-container">
     <div class="container">
-      <h2>Our Team</h2>
+      <h2>Contact</h2>
 
-      <ul>
-        <li>
-          <figure>
-            <img src="/images/user1.png" alt="user 1" />
-            <blockquote>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              corrupti numquam quos nihil?
+      <figure>
+        <figcaption>- Pierpaolo Pascarella</figcaption>
+        <div class="contact-info">
+          <img
+            src="@/assets/pierpaoloPicture.jpg"
+            alt="user 1"
+            class="profile-image"
+          />
+          <div>
+            <blockquote class="block">
+              <span class="phone">
+                Phone : <a href="tel:+31640218987">+31 6 40218987 </a>
+              </span>
+              <br />
+              <span class="email">
+                Email :
+                <a href="mailto:pierpaolo.pascarella@gmail.com"
+                  >pierpaolo.pascarella@gmail.com</a
+                >
+              </span>
             </blockquote>
-            <figcaption>- Jhon Doe</figcaption>
-          </figure>
-        </li>
-        <li>
-          <figure>
-            <img src="/images/user2.png" alt="user 2" />
-            <blockquote>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              corrupti numquam quos nihil?
-            </blockquote>
-            <figcaption>- User 2</figcaption>
-          </figure>
-        </li>
-      </ul>
+          </div>
+        </div>
+      </figure>
     </div>
   </div>
 </template>
@@ -83,7 +88,7 @@ export default {
           id: 1,
           img: "feedback-board.svg",
           title: "Feedback Forum",
-          techArray: ["VueJs", "Vuex & Router", "Firebase Cloud DB",],
+          techArray: ["VueJs", "Vuex & Router", "Firebase Cloud DB"],
           GHLink: "https://github.com/Pierpaolo01/vue-product-feedback",
           liveLink: "http://www.product-feedback.xyz/",
         },
@@ -117,10 +122,19 @@ blockquote {
   line-height: 1.6em;
 }
 
+.block {
+  text-align: left;
+  margin: 45px 0 0 0;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+.contact-info {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -155,6 +169,13 @@ h1,
 .slogan {
   position: relative;
   z-index: 3;
+}
+
+.profile-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
 .slogan {
@@ -400,7 +421,9 @@ p ul li:last-child {
   .blue-container ul {
     display: flex;
     margin-top: 1em;
+    justify-content: center;
     align-items: center;
+    margin: 0 auto;
   }
   .blue-container ul li {
     margin-bottom: 0;
