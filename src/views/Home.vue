@@ -2,6 +2,7 @@
   <div class="container-main">
     <div class="container heading">
       <header>
+        
         <h2 id="title">Pierpaolo Pascarella</h2>
         <nav>
           <ul id="nav">
