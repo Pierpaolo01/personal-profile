@@ -33,7 +33,7 @@ export default {
   props: ["id", "img", "title", "techArray", "GHLink", "liveLink"],
   methods: {
       selectedProject(){
-          this.$emit('feedModal', this.$props, true);
+          this.$emit('feedModal', this.$props.id, true);
       },
   },
   computed: {

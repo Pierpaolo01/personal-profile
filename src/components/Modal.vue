@@ -1,29 +1,19 @@
 <template>
   <div class="modal">
     <teleport to="body">
-      <div class="container">
+      <div class="container-modal">
         <div class="content">
           <h2> {{ title }} </h2>
 
           <h4>Scope</h4>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Perferendis odit quis pariatur veniam a omnis quibusdam, nulla
-            expedita, atque reiciendis eaque beatae eveniet adipisci! Ullam,
-            neque repudiandae recusandae ad, qui numquam amet tenetur vero
-            reiciendis saepe illum atque? Unde illum sint architecto ipsa aut
-            quia?
+            {{ scope }}
           </p>
 
           <h4>Challenges</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
-            dolorum. Corporis fugiat maxime omnis tempore rem consectetur
-            impedit! Vel nostrum asperiores provident sequi impedit ratione id
-            amet quidem ipsum earum? Reiciendis, ipsum aut molestiae repellendus
-            doloremque voluptatum saepe distinctio, rem magnam nobis aspernatur
-            dolor delectus eius tenetur, totam in vero!
-          </p>
+          <span>
+
+          </span>
 
           <button class="btn btn-danger" @click="$emit('closeModal', false)">close</button>
         </div>
@@ -43,7 +33,7 @@ export default {
   position: relative;
 }
 
-.container {
+.container-modal {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -60,5 +50,6 @@ export default {
   padding: 50px;
   border-radius: 10px;
   background-color: white;
+  max-width: 850px;
 }
 </style>

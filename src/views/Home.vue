@@ -1,13 +1,15 @@
 <template>
-  <div class="container">
+  <div class="container-main">
     <div class="container heading">
       <header>
         <h2 id="title">Pierpaolo Pascarella</h2>
         <nav>
           <ul id="nav">
-            <li><a href="#">View CV</a></li>
-            <li><a href="#">View GitHub</a></li>
-            <li><a href="#">Contact</a></li>
+            <!-- <li><router-link to="/resume" target="_blank">View CV</router-link></li> -->
+
+            <li><a href="https://pdfhost.io/v/8~2Jc7YKU_resume" target="_blank">View CV</a></li>
+            <li><a href="https://github.com/Pierpaolo01?tab=repositories" target="_blank">View GitHub</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </header>
@@ -28,12 +30,16 @@
         />
       </section>
     </div>
-    <Modal v-if="modalIsVisible"
-    :title="selectedProject.title"
-    @closeModal="modalIsVisible = false"/>
+    <Modal
+      v-if="modalIsVisible"
+      :title="selectedProject.title"
+      :scope="selectedProject.scope"
+      :challenge="selectedProject.challenge"
+      @closeModal="modalIsVisible = false"
+    />
     <div class="blue-container">
       <div class="container projects">
-        <ul >
+        <ul>
           <ProjectView
             v-for="proj in projectsArray"
             :key="proj.id"
@@ -53,7 +59,7 @@
         <h2>Contact</h2>
 
         <figure>
-          <figcaption>- Pierpaolo Pascarella</figcaption>
+          <figcaption id="contact">- Pierpaolo Pascarella</figcaption>
           <div class="contact-info">
             <img
               src="@/assets/pierpaoloPicture.jpg"
@@ -96,17 +102,34 @@ export default {
           id: 1,
           img: "feedback-board.svg",
           title: "Feedback Forum",
-          techArray: ["VueJs", "Vuex & Router", "Firebase Cloud DB"],
+          techArray: ["VueJs (Vuex & Router)", "Firebase Cloud DB"],
           GHLink: "https://github.com/Pierpaolo01/vue-product-feedback",
           liveLink: "http://www.product-feedback.xyz/",
+          scope: `Your users should be able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- Create, read, update, and delete product feedback requests
+- Receive form validations when trying to create/edit feedback requests
+- Sort suggestions by most/least upvotes and most/least comments
+- Filter suggestions by category
+- Add comments and replies to a product feedback request
+- Upvote product feedback requests`,
         },
         {
           id: 2,
           img: "invoices.svg",
           title: "Invoice App",
-          techArray: ["VueJs & Vuex", "Firebase Cloud DB"],
+          techArray: ["VueJs & Vuex", "Firebase Cloud DB", "SCSS"],
           GHLink: "https://github.com/Pierpaolo01/vue-invoice-app",
           liveLink: "http://www.invoice-app.xyz/",
+          scope: `Your users should be able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Create, read, update, and delete invoices
+- Receive form validations when trying to create/edit an invoice
+- Save draft invoices, and mark pending invoices as paid
+- Filter invoices by status (draft/pending/paid)`,
         },
       ],
       selectedProject: null,
@@ -114,22 +137,25 @@ export default {
     };
   },
   methods: {
-    setSelectedProject(projValue, openModal){
-      this.selectedProject = projValue;
+    setSelectedProject(projValue, openModal) {
+      this.selectedProject = this.projectsArray.filter(
+        (proj) => proj.id === projValue
+      )[0];
       this.modalIsVisible = openModal;
-      console.log(this.selectedProject.title)
-    }
+    },
   },
+  computed: {
+
+  }
 };
 </script>
 
 <style scoped>
-
-.container {
+.container-main {
   z-index: 1;
   padding: 0;
+  margin: 0;
 }
-
 
 #title {
   margin: 19px 0;

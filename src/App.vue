@@ -5,8 +5,18 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous"
   />
-  <router-view/>
+  <!-- <router-view/> -->
+  <Home />
 </template>
+
+<script>
+import Home from "./views/Home.vue"
+export default {
+  components: {
+    Home,
+  }
+}
+</script>
 
 <style>
 #app {
@@ -18,7 +28,6 @@
 }
 body {
   margin: 0;
-  font-family: "roboto";
 }
 
 #nav {
