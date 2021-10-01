@@ -8,7 +8,7 @@
           <ul id="nav">
             <!-- <li><router-link to="/resume" target="_blank">View CV</router-link></li> -->
 
-            <li><a href="https://pdfhost.io/v/8~2Jc7YKU_resume" target="_blank">View CV</a></li>
+            <li><a href="https://docdro.id/zDRifUT" target="_blank">View CV</a></li>
             <li><a href="https://github.com/Pierpaolo01?tab=repositories" target="_blank">View GitHub</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
